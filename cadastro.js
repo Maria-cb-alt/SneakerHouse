@@ -59,8 +59,31 @@ app.post('/cadastro-usuario', (req, res) => {
 
 //atualização de usuário 
 app.put('/cadastro-usuario/:index', (req, res) => {
+    const { index } = req.params; 
 
+    const { nomeUsu } = req.body;
+    const { cpfUsu } = req.body;
+    const { cepUsu } = req.body;
+    const { sexoUsuM } = req.body;
+    const { sexoUsuF } = req.body;
+    const { sexoUsu } = req.body;
+    const { emailUsu } = req.body;
+    const { senhaUsu } = req.body;
+    const { confirmSenha } = req.body;
+    const { btnEnviar } = req.body;
 
+    cadUsu[index] = cadUsu;  
 
+    return res.json(cadUsu);
     
+})
+
+//Deletar usuário 
+app.delete('/deletar-usuario/:index' , (req, res) => {
+    const { index } = req.params; 
+
+    cadUsu.splice(index, cadUsu); 
+
+    return res.json({ message: "O seu usuário foi deletado com sucesso!"})
+
 })
